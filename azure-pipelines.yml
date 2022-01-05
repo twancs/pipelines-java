@@ -22,3 +22,13 @@ steps:
     goals: 'package'
 - publish: /home/vsts/work/1/s/target/helloworld.war
   artifact: WebApp
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'deploy'
+    publishJUnitResults: false
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
